@@ -34,14 +34,25 @@
   width: auto;
   object-fit: contain;
 }
+#root {
+  margin-top: 0;
+}
 
+/* 2. Hero Section Fix */
+.hero-section {
+  padding-top: 100px; /* Matches your mobile navbar height */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 /* 2. DESKTOP ONLY TRANSFORMATIONS */
 @media (min-width: 769px) {
   .navbar {
     background-color: transparent; /* Remove solid background */
-    height: 120px; /* Give room for the pill to float */
+    height: 160px; /* Give room for the pill to float */
     box-shadow: none;
-    padding: 0 40px;
+    padding: 0 20px;/* it allows the contents to fit the screen on mobile */
   }
 
   .navbar-content {
@@ -53,12 +64,13 @@
   }
 
   .logo {
-    height: 55px; /* Slightly larger on desktop */
+    height: 75px; /* Slightly larger on desktop */
   }
 
   .nav-links {
     display: flex;
     list-style: none;
+    padding: 70px;
     gap: 30px;
     align-items: center;
   }
@@ -86,59 +98,72 @@
   }
 }
 
-/* 3. MOBILE SPECIFIC (Hiding links/Hamburger) */
+/* 3. MOBILE SPECIFIC (768px and down) */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none; /* Hide the desktop list on mobile */
+  .navbar {
+    height: 120px; /* Increased from 70px to 150px */
+    background-color: #ffffff;
   }
-  
+
+  .logo {
+    height: 65px; /* Increased logo size for the larger bar */
+  }
+
   .hamburger {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
     cursor: pointer;
   }
 
   .bar {
-    width: 25px;
-    height: 3px;
+    width: 30px; /* Slightly wider bars for the larger nav */
+    height: 4px;
     background-color: var(--brand-orange);
     border-radius: 2px;
   }
-  /* 4. MOBILE MENU LOGIC (The Fix) */
-@media (max-width: 768px) {
-  /* This is the hidden state of the menu */
+
+  /* 4. MOBILE MENU LOGIC */
   .nav-links {
-    display: flex;             /* Change from 'none' to 'flex' */
+    display: flex;
     flex-direction: column;
     position: fixed;
-    top: 70px;                 /* Starts exactly below your 70px navbar */
+    /* Must match the new .navbar height so it starts below the bar */
+    top: 120px; 
     left: 0;
-    width: 100%;
-    height: 0;                 /* Hidden by default height */
-    overflow: hidden;          /* Hides the links when height is 0 */
+    width: 120%;
+    height: 0; /* Hidden state */
+    overflow: hidden;
     background-color: #ffffff;
-    transition: height 0.3s ease; /* Smooth slide-down effect */
+    transition: height 0.3s ease;
     list-style: none;
     padding: 0;
     margin: 0;
     align-items: center;
     gap: 25px;
     box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    z-index: 999;
   }
 
-  /* This class is added by your React 'isMenuOpen' state */
+  /* When menu is toggled open */
   .nav-links.mobile-open {
-    height: 300px;             /* Adjust this height based on your links */
-    padding-top: 30px;
+    height: 350px; /* Increased height to fit links comfortably */
+    padding-top: 40px;
   }
 
   .nav-links a {
     text-decoration: none;
     color: var(--brand-orange);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Larger font for better mobile tap targets */
     text-transform: uppercase;
   }
+  /* Ensure the content starts below the mobile navbar */
+#root {
+  margin-top: 0; /* Hero images usually go behind the nav */
+}
+
+section {
+  padding-top: 80px; /* Standard spacing for other pages */
 }
 }
