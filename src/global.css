@@ -1,8 +1,144 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Custom Mica Brand Colors if needed */
 :root {
-  --mica-blue: #2563eb;
+  --brand-orange: #1F3B54; 
+  --mica-blue: #1F3B54;
+}
+
+/* 1. BASE NAVBAR (Mobile & Global) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; /* Standard height for mobile */
+  background-color: #ffffff;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* 2. DESKTOP ONLY TRANSFORMATIONS */
+@media (min-width: 769px) {
+  .navbar {
+    background-color: transparent; /* Remove solid background */
+    height: 120px; /* Give room for the pill to float */
+    box-shadow: none;
+    padding: 0 40px;
+  }
+
+  .navbar-content {
+    background-color: #ffffff;
+    height: 90px;
+    border-radius: 100px; /* The Pill Shape */
+    padding: 0 45px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo {
+    height: 55px; /* Slightly larger on desktop */
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--brand-orange);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Contact Us Button Style */
+  .contact-btn a {
+    background-color: var(--brand-orange);
+    color: white !important;
+    padding: 12px 25px;
+    border-radius: 50px;
+    transition: transform 0.2s ease;
+  }
+
+  .contact-btn a:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* 3. MOBILE SPECIFIC (Hiding links/Hamburger) */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide the desktop list on mobile */
+  }
+  
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--brand-orange);
+    border-radius: 2px;
+  }
+  /* 4. MOBILE MENU LOGIC (The Fix) */
+@media (max-width: 768px) {
+  /* This is the hidden state of the menu */
+  .nav-links {
+    display: flex;             /* Change from 'none' to 'flex' */
+    flex-direction: column;
+    position: fixed;
+    top: 70px;                 /* Starts exactly below your 70px navbar */
+    left: 0;
+    width: 100%;
+    height: 0;                 /* Hidden by default height */
+    overflow: hidden;          /* Hides the links when height is 0 */
+    background-color: #ffffff;
+    transition: height 0.3s ease; /* Smooth slide-down effect */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+  }
+
+  /* This class is added by your React 'isMenuOpen' state */
+  .nav-links.mobile-open {
+    height: 300px;             /* Adjust this height based on your links */
+    padding-top: 30px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--brand-orange);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+  }
+}
 }
