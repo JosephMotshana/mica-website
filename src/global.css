@@ -46,6 +46,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
 /* 2. DESKTOP ONLY TRANSFORMATIONS */
 @media (min-width: 769px) {
   .navbar {

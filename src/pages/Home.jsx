@@ -1,18 +1,21 @@
 import SEO from '../components/SEO';
-// Import your local image from the assets folder
 import backgroundImage from '../assets/background.png';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
     <>
       <SEO 
         title="Home" 
-        description="Mica General Auto Repairs - Professional car maintenance, diagnostics, and repairs." 
+        description="Mica General Auto Repairs - Specialist in Repair." 
         path="/"
       />
       
-      {/* Hero Section: h-screen ensures it fits the mobile screen height perfectly */}
-      <section className="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
+      {/* 1. Applied 'hero-section' class
+          2. Removed 'items-center' and 'justify-center' from here 
+          3. 'min-h-screen' ensures the background covers the whole page
+      */}
+      <section className="hero-section relative w-full min-h-screen flex flex-col overflow-hidden px-6">
         
         {/* The Background Image Container */}
         <div className="absolute inset-0 z-0">
@@ -21,29 +24,32 @@ const Home = () => {
             alt="Mica Auto Repair Background" 
             className="w-full h-full object-cover"
           />
-          {/* This dark overlay is essential! 
-              It makes your white text readable over the 'background.png' 
-          */}
-          <div className="absolute inset-0 bg-black/50"></div>
+          {/* Slightly darker overlay (60%) to make white text stand out */}
+          <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
         {/* Content Layer */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="relative z-10 max-w-7xl mx-auto text-center w-full">
           <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-2 leading-tight tracking-tight">
             Welcome to
           </h2>
+          
           <h1 className="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-            Mica General Auto Repairs <span className="text-blue-400">Specialist in Repair</span>
+            Mica General Auto Repairs <br />
+            <span className="text-blue-400">Specialists in Repairs</span>
           </h1>
           
           <p className="text-lg md:text-2xl text-gray-200 max-w-2xl mx-auto mb-10 font-medium">
-            Mica General Auto Repairs: Quality service you can trust for all your vehicle needs.
+            We provide quality service you can trust for all your vehicle's needs.
           </p>
 
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 hover:scale-105 transition-all shadow-xl">
-              Our Services
-            </button>
+            <Link 
+            to="/services" 
+              className="bg-white text-[#1F3B54] px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl inline-block"
+            >
+            Our Services
+            </Link>
           </div>
         </div>
       </section>
