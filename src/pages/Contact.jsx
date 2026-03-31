@@ -69,8 +69,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-xs md:text-sm text-blue-400 uppercase font-bold tracking-widest mb-1">Email Us</p>
-                  <a href="mailto:micageneralauto@gmail.com" className="text-lg md:text-xl font-semibold hover:text-blue-300 transition-colors">
-                    micageneralauto@gmail.com
+                  <a href="mailto:info@micageneralauto.co.za" className="text-lg md:text-xl font-semibold hover:text-blue-300 transition-colors">
+                    info@micageneralauto.co.za
                   </a>
                 </div>
               </div>
