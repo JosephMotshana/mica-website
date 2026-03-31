@@ -6,10 +6,9 @@ const Home = () => {
   return (
     <>
       <SEO 
-        title="Home" 
-        description="Mica General Auto Repairs - Specialist in Repair." 
-        path="/"
-      />
+  title="Expert Car Repairs & Diagnostics" 
+  description="Mica General Auto Repairs in Booysens, Johannesburg. We specialize in professional car servicing, engine diagnostics, and mechanical repairs for all makes and models. Quality workmanship you can trust." 
+  />
       
       {/* 1. Applied 'hero-section' class
           2. Removed 'items-center' and 'justify-center' from here 

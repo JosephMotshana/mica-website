@@ -3,12 +3,12 @@ import contactsBg from '../assets/about.png';
 
 const Contact = () => {
   return (
+
     <div className="bg-white">
       <SEO 
-        title="Contact Us | Mica General Auto Repairs" 
-        description="Visit Mica General Auto Repairs in Booysens for expert car maintenance and diagnostics." 
-        path="/contact" 
-      />
+  title="Find Us in Booysens | 16 Ophir Road" 
+  description="Visit Mica General Auto Repairs at 16 Ophir Road, Booysens. Call us for reliable vehicle inspections, diagnostic checks, and professional mechanical advice in Johannesburg South." 
+/>
 
       <section 
         className="contact-wrapper relative min-h-screen flex items-center justify-center pt-40 md:pt-48 pb-20 px-6 bg-cover bg-center" 

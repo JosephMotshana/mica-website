@@ -10,6 +10,10 @@ const Services = () => {
     { title: "Transmission Repair", desc: "Expert servicing for automatic and manual gearboxes." },
     { title: "General Maintenance", desc: "Routine oil changes, filter replacements, and 50-point safety inspections." }
   ];
+  <SEO 
+  title="Major Service, Brakes & Engine Repairs" 
+  description="Comprehensive automotive services including computer diagnostics, brake replacements, clutch overhauls, and major engine repairs. Professional mechanical solutions for private and fleet vehicles in Booysens." 
+/>
 
     const brands = [
 
